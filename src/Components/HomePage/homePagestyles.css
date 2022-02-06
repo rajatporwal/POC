@@ -1,0 +1,42 @@
+.headerCss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  color: white;
+  height: 3rem;
+}
+
+.dropdownBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  height: 3rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.entitlementCss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  margin: auto;
+  width: 20%;
+  padding: 10px;
+}
+
+.dropdownCss {
+  margin: 20px;
+  height: 3rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.divGridCss {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
