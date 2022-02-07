@@ -1,5 +1,5 @@
 import HomePage from './Components/HomePage/HomePage';
-import { createContext, useState, useContext, useMemo } from 'react';
+import { createContext, useState, useMemo } from 'react';
 
 export const UserContext = createContext({
   templateList: [],

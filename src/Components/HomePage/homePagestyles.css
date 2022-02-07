@@ -25,6 +25,7 @@
   margin: auto;
   width: 20%;
   padding: 10px;
+  cursor: pointer;
 }
 
 .dropdownCss {
@@ -36,7 +37,25 @@
 
 .divGridCss {
   display: grid;
-  grid-template-columns: 1fr 0.4fr;
+  grid-template-columns: 1fr 0.3fr;
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+}
+
+.rightSection {
+  margin-top: 5rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 30px;
+  width: 70%;
+}
+
+.coList {
+  display: flex;
+  justify-content: center;
+  background-color: dodgerblue;
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  /* width: 50%; */
 }
