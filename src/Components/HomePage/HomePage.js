@@ -6,7 +6,8 @@ import ModalComponent from "../Modal/Modal";
 
 const HomePage = () => {
   const [modal, setModal] = useState(false);
-
+  const [groupbyType, setGroupsByType] = useState({});
+  let count = 0;
   const { templateList, setTemplateList, coList, setCoList } =
     useContext(UserContext);
 
@@ -24,12 +25,35 @@ const HomePage = () => {
       getCoList(name)
         .then((items) => {
           setCoList(items);
+        setGroupsByType({});
+
         })
         .catch((res) => setCoList(res));
     } else {
       setCoList([]);
     }
   };
+
+  const handleAddClick = (result) => {
+    setGroupsByType(result);
+  };
+
+  const getGroupBox = (type) => (
+    <div>
+      <div className="box">{type}</div>
+      {groupbyType[type]?.length > 0
+        ? groupbyType[type].map((ele) => {
+            count += 1;
+            return (
+              <div className="group" key={ele.name}>
+                <div className="groupHeader">Group {count}</div>
+                <div className="groupContent">{ele.name}</div>
+              </div>
+            );
+          })
+        : null}
+    </div>
+  );
 
   return (
     <>
@@ -51,11 +75,10 @@ const HomePage = () => {
           </div>
           <div className="divGridCss">
             <div className="leftSection">
-              <div className="dropdownCss">DSG</div>
-              <div className="dropdownCss">AGG</div>
-              <div className="dropdownCss">IND</div>
+                {getGroupBox("DSG")}
+                {getGroupBox("AGG")}
+                {getGroupBox("IND")}
             </div>
-
             <div className="rightSection">
               {coList.map((ele) => (
                 <div key={ele.id} className="coList">
@@ -68,7 +91,12 @@ const HomePage = () => {
       ) : null}
       {modal && (
         <div className="modalContainer">
-          <ModalComponent modal={modal} setModal={setModal} coList={coList} />
+          <ModalComponent
+            modal={modal}
+            setModal={setModal}
+            coList={coList}
+            handleAddClick={handleAddClick}
+          />
         </div>
       )}
     </>

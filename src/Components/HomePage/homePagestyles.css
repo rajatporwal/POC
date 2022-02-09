@@ -28,18 +28,34 @@
   cursor: pointer;
 }
 
-.dropdownCss {
-  margin: 20px;
-  height: 3rem;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-}
-
 .divGridCss {
   display: grid;
   grid-template-columns: 1fr 0.3fr;
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+}
+
+.leftSection{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem
+}
+
+.leftSection > * {
+  padding: 1rem;
+}
+
+.leftSection :not(:last-child) {
+  border-right: 1px dashed grey;
+}
+
+.box {
+  border: 1px dashed black;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rightSection {
@@ -58,4 +74,26 @@
   border: 2px solid black;
   border-radius: 10px;
   /* width: 50%; */
+}
+
+.group {
+  margin-top: 1rem;
+}
+
+.groupHeader {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: darkred;
+  color: white
+}
+
+.groupContent {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightpink;
+  color: white
 }

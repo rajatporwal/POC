@@ -4,7 +4,7 @@ import "./modalStyles.css";
 import { Button, Modal, ModalFooter, ModalBody, Input } from "reactstrap";
 import { getCoList, handleValues } from "../utils";
 
-const ModalComponent = ({ modal, setModal, coList }) => {
+const ModalComponent = ({ modal, setModal, coList, handleAddClick }) => {
   const [groups, setGroups] = useState([]);
   const [dropDownvalues, setDropDownValues] = useState([]);
   const toggle = () => setModal(!modal);
@@ -23,6 +23,27 @@ const ModalComponent = ({ modal, setModal, coList }) => {
     }
     setGroups(temp);
   };
+
+  const onClickHandler = () => {
+    toggle();
+    const obj = {
+      DSG: [],
+      AGG: [],
+      IND: []
+    }
+    groups.forEach(ele => {
+      if(ele.dropdownValue.includes('DSG'))
+        obj['DSG'].push(ele)
+      
+      if(ele.dropdownValue.includes('AGG'))
+        obj['AGG'].push(ele)
+      
+        if(ele.dropdownValue.includes('IND'))
+        obj['IND'].push(ele)
+      
+    })
+    handleAddClick(obj);
+  }
 
   return (
     <div
@@ -120,7 +141,7 @@ const ModalComponent = ({ modal, setModal, coList }) => {
           <Button color="secondary" onClick={toggle}>
             Cancel
           </Button>
-          <Button color="primary" onClick={toggle}>
+          <Button color="primary" onClick={() => onClickHandler()}>
             Add
           </Button>
         </ModalFooter>
